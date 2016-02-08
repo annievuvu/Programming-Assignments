@@ -15,7 +15,6 @@ Route::get('/','PageController@index');
 Route::get('/greet/{name}','PageController@greet');
 Route::get('/weather/{location}','WeatherController@getWeather');
 
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -29,10 +28,4 @@ Route::get('/weather/{location}','WeatherController@getWeather');
 
 Route::group(['middleware' => ['web']], function () {
     //
-});
-
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
 });
