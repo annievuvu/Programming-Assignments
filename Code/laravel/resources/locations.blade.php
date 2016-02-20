@@ -1,4 +1,7 @@
 <html>
 	<body>
-		@foreach($locations as $location)
-		<p>{{ $location->value }}</p>
+		@foreach($location as $locate)
+		<p>{{ $locate->value }}</p>
+		@endforeach
+	</body>
+</html>
