@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', 'PageController@index');
-// Route::get('/greet/{name}','PageController@greet');
-// Route::get('/weather/{location}','WeatherController@getWeather');
+Route::get('/', 'PageController@index');
+Route::get('/greet/{name}','PageController@greet');
+Route::get('/weather/{location}','WeatherController@getWeather');
 
 Route::get('/locations','LocationController@index');
 Route::get('/stories','StoryController@index');
@@ -33,4 +33,10 @@ Route::get('/tags','StoryController@tags');
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });

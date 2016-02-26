@@ -16,7 +16,7 @@ class CreateStoriesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->longText('story');
-            $table->boolean('published')
+            $table->boolean('published');
             $table->timestamps();
         });
     }
