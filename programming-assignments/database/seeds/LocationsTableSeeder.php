@@ -12,11 +12,16 @@ class LocationsTableSeeder extends Seeder
     public function run()
     {
         $fake = Faker\Factory::create();
-        $limit = 20;
+        $limit = 10;
         for ($i = 0; $i < $limit; $i++){
         	DB::table('location')->insert([ //,
         		'value' => $faker->city.','.$faker->stateAbbr,
         	]);
         }
+
+        // DB::table('location')->insert([
+        //         'id' => 1,
+        //         'value'=>'New York City,NY',
+        //     ]);
     }
 }
