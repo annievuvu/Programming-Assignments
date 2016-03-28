@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Story extends Model
 {
-    public function tagss(){
-    	return $this->hasMany('App\Tag');
+    public function tags(){
+    	return $this->belongsToMany('App\Tag','story_tag');
+    }
+
+    public function location(){
+    	return $this->belongsTo('App\Location');
     }
 }
