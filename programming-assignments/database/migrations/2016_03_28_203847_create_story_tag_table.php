@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoriesTable extends Migration
+class CreateStoryTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,10 @@ class CreateStoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('stories', function(Blueprint $table){
+        Schema::create('story_tag', function(Blueprint $table){
             $table->increments('id');
-            $table->string('title');
-            $table->longText('story');
-            $table->boolean('published');
-            $table->integer('location_id')->references('id')->on('locations');
+            $table->integer('story_id')->references('id')->on('stories');
+            $table->integer('tag_id')->references('id')->on('tags');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateStoriesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stories');
+        Schema::drop('story_tag');
     }
 }
