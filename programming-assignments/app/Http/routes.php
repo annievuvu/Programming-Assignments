@@ -35,8 +35,9 @@ Route::post('/story/store','StoryController@store');
 */
 
 Route::group(['middleware' => ['web']], function () {
+    //cause session
     Route::get('/story/create','StoryController@create');
-Route::post('/story/store','StoryController@store');
+	Route::post('/story/store','StoryController@store');
 
 });
 
